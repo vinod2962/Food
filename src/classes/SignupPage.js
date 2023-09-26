@@ -252,7 +252,7 @@ export default function SignupPage(props) {
                 marginLeft: 5,
                 color: '#208C5A',
               }}>
-              Log in
+              Log inn
             </Text>
           </TouchableOpacity>
 
