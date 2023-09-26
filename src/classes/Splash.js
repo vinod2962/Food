@@ -12,7 +12,7 @@ export default function Splash(props) {
   useEffect(() => {
     getData();
     setTimeout(() => {
-      props.navigation.navigate('Main');
+      props.navigation.navigate('LoginPage');
     }, 1000);
   });
 

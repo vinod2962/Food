@@ -28,6 +28,11 @@ export default function SignupPage(props) {
 
   //   console.log(getData())
 
+  const emailcom = !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  const passwordcom =
+    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
+      password,
+    );
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -56,7 +61,7 @@ export default function SignupPage(props) {
       toastAlert('Please enter your gender');
     } else if (email === '') {
       toastAlert('Please enter your email');
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    } else if (emailcom) {
       toastAlert('please fill the valid email');
     } else if (
       usersDataList.some(el => el.email === email.toLowerCase()) === true
@@ -88,11 +93,7 @@ export default function SignupPage(props) {
       // });
     } else if (password === '') {
       toastAlert('Please enter your password');
-    } else if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
-        password,
-      )
-    ) {
+    } else if (passwordcom) {
       toastAlert(
         'Strong Password:-  1 uppercase. 1 lowercase ,1 special character,1 number,Min 8 characters, Max 30 characters.',
       );
