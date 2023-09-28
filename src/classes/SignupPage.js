@@ -8,6 +8,7 @@ import {
   Alert,
   TextInput,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import css from '../stylesheets/css';
 import InputText from '../components/InputText';
@@ -28,11 +29,11 @@ export default function SignupPage(props) {
 
   //   console.log(getData())
 
-  const emailcom = !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-  const passwordcom =
-    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
-      password,
-    );
+  // const emailcom = !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  // const passwordcom =
+  //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
+  //     password,
+  //   );
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -61,7 +62,7 @@ export default function SignupPage(props) {
       toastAlert('Please enter your gender');
     } else if (email === '') {
       toastAlert('Please enter your email');
-    } else if (emailcom) {
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       toastAlert('please fill the valid email');
     } else if (
       usersDataList.some(el => el.email === email.toLowerCase()) === true
@@ -93,7 +94,11 @@ export default function SignupPage(props) {
       // });
     } else if (password === '') {
       toastAlert('Please enter your password');
-    } else if (passwordcom) {
+    } else if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
+        password,
+      )
+    ) {
       toastAlert(
         'Strong Password:-  1 uppercase. 1 lowercase ,1 special character,1 number,Min 8 characters, Max 30 characters.',
       );
@@ -139,156 +144,170 @@ export default function SignupPage(props) {
   return (
     <SafeAreaView
       style={{
-        backgroundColor: 'white',
+        backgroundColor: '#EFF1EF',
         flex: 1,
       }}>
-      <View style={css.topAreaView}>
-        <Text style={css.signUp_1_Text}>Sign Up</Text>
-        <Text style={css.signUp_2_Text}>
-          Create account and choose your favorite menu
-        </Text>
-      </View>
+      <View
+        style={{
+          // backgroundColor: 'red',
+          flexDirection: 'column',
+          alignSelf: 'center',
+        }}>
+        <View style={css.topAreaView}>
+          <Text style={css.signUp_1_Text}>Sign Up</Text>
+          <Text style={css.signUp_2_Text}>
+            Create account and choose your favorite menu
+          </Text>
+        </View>
 
-      <View style={css.SignupView}>
-        <InputText
-          title="Name"
-          holder="Your Name"
-          myData={val => setName(val)}
-          value={name}
-        />
+        <View style={css.SignupView}>
+          <InputText
+            title="Name"
+            holder="Your Name"
+            myData={val => setName(val)}
+            value={name}
+          />
 
-        <InputText
-          title="Gender"
-          holder="Your Gender"
-          myData={val => setGender(val)}
-          value={gender}
-        />
+          <InputText
+            title="Gender"
+            holder="Your Gender"
+            myData={val => setGender(val)}
+            value={gender}
+          />
 
-        <InputText
-          title="Email"
-          holder="Your Email"
-          myData={val => setEmail(val)}
-          value={email}
-        />
+          <InputText
+            title="Email"
+            holder="Your Email"
+            myData={val => setEmail(val)}
+            value={email}
+          />
 
-        <InputText
-          title="Password"
-          holder="Password"
-          myData={val => setPassword(val)}
-          value={password}
-        />
+          <InputText
+            title="Password"
+            holder="Password"
+            myData={val => setPassword(val)}
+            value={password}
+          />
 
-        <InputText
-          title="Confirm Password"
-          holder="Confirm Password"
-          myData={val => setConfirm(val)}
-          value={confirm}
-        />
+          <InputText
+            title="Confirm Password"
+            holder="Re-Enter Your Password"
+            myData={val => setConfirm(val)}
+            value={confirm}
+          />
 
-        <Text
-          style={{
-            marginTop: 14,
-            fontSize: 16,
-          }}>
-          Phone Number
-        </Text>
-        <PhoneInput
-          containerStyle={{
-            paddingVertical: 0,
-            width: 280,
-            borderBottomColor: '#208C5A',
-            borderBottomWidth: 1,
-            alignSelf: 'center',
-            marginTop: 3,
-            backgroundColor: 'white',
-            height: 35,
-          }}
-          textContainerStyle={{
-            backgroundColor: 'white',
-            paddingLeft: 10,
-            // backgroundColor: 'red',
-          }}
-          layout="second"
-          textInputStyle={{height: 20}}
-          countryPickerButtonStyle={{
-            width: 70,
-            paddingLeft: 1,
-            // fontSize: 10,
-          }}
-          onChangeText={val => setPhone(val)}
-          value={phone}
-        />
-        {/* <InputText
-          title="Phone Number"
-          holder="Your Phone Number"
-          myData={val => setPhone(val)}
-          value={phone}
-        /> */}
-
-        <TouchableOpacity onPress={val => Validation(val)}>
-          <ButtonComp title="Create account" />
-        </TouchableOpacity>
-
-        <View
-          style={{
-            alignSelf: 'center',
-            marginTop: 10,
-            flexDirection: 'row',
-          }}>
           <Text
             style={{
-              marginTop: 1,
+              marginTop: 10,
               fontSize: 15,
             }}>
-            Have an account?
+            Phone Number
           </Text>
-
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate('LoginPage')}>
+          <PhoneInput
+            containerStyle={{
+              paddingVertical: 0,
+              width: Dimensions.get('screen').width * 0.75,
+              borderBottomColor: '#208C5A',
+              borderBottomWidth: 1,
+              alignSelf: 'center',
+              marginTop: 3,
+              backgroundColor: '#EFF1EF',
+              height: 35,
+            }}
+            textContainerStyle={{
+              backgroundColor: '#EFF1EF',
+              paddingLeft: 10,
+              // backgroundColor: 'red',
+            }}
+            layout="second"
+            textInputStyle={{
+              height: 27,
+              color: 'black',
+              paddingBottom: -10,
+            }}
+            countryPickerButtonStyle={{
+              width: 70,
+              paddingLeft: 1,
+              fontSize: 10,
+            }}
+            onChangeFormattedText={val => setPhone(val)}
+            value={phone}
+          />
+          {/* <InputText
+            title="Phone Number"
+            holder="Your Phone Number"
+            myData={val => setPhone(val)}
+            value={phone}
+          /> */}
+          <View
+            style={{
+              marginTop: 5,
+            }}>
+            <TouchableOpacity onPress={val => Validation(val)}>
+              <ButtonComp title="Create account" />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              alignSelf: 'center',
+              marginTop: 10,
+              flexDirection: 'row',
+            }}>
             <Text
               style={{
-                alignSelf: 'flex-end',
-                fontSize: 16,
-                marginLeft: 5,
-                color: '#208C5A',
+                marginTop: 1,
+                fontSize: 14,
               }}>
-              Log inn
+              Have an account?
             </Text>
-          </TouchableOpacity>
 
-          {/* <Button
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('LoginPage')}>
+              <Text
+                style={{
+                  alignSelf: 'flex-end',
+                  fontSize: 14,
+                  marginLeft: 5,
+                  color: '#208C5A',
+                }}>
+                Log in
+              </Text>
+            </TouchableOpacity>
+
+            {/* <Button
                     color={"#208C5A"}
                     title="Log in"
                     onPress={()=>props.navigation.navigate("LoginPage")}
                     /> */}
+          </View>
         </View>
-      </View>
 
-      <Text
-        style={{
-          fontSize: 15,
-          alignSelf: 'center',
-          marginTop: 10,
-          fontWeight: '500',
-          color: 'black',
-          // overflow:'hidden'
-        }}>
-        ---------------------------Or---------------------------
-      </Text>
+        <Text
+          style={{
+            fontSize: 15,
+            alignSelf: 'center',
+            marginTop: 10,
+            fontWeight: '500',
+            color: 'black',
+            // overflow:'hidden'
+          }}>
+          Or
+        </Text>
 
-      <View
-        style={{
-          marginTop: 10,
-        }}>
-        <ButtonGmailFacebook
-          title="Sign in with Google"
-          Image={require('../images/apple.png')}
-        />
+        <View
+          style={{
+            marginTop: 1,
+          }}>
+          <ButtonGmailFacebook
+            title="Sign in with Google"
+            Image={require('../images/apple.png')}
+          />
 
-        <ButtonGmailFacebook
-          title="Sign in with Google"
-          Image={require('../images/gmailIcon.png')}
-        />
+          <ButtonGmailFacebook
+            title="Sign in with Google"
+            Image={require('../images/gmailIcon.png')}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -1,65 +1,58 @@
-import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import {
+  Dimensions,
+  Platform,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function Search_Bar(props) {
-    const { onClick } = props
-    return (
+  const {onClick} = props;
+  return (
+    <View
+      style={{
+        marginTop: 8,
+        alignSelf: 'center',
+        flexDirection: 'row',
+      }}>
+      <TextInput
+        onChangeText={props.myDataS}
+        placeholder={props.holder}
+        placeholderTextColor={'grey'}
+        style={{
+          borderWidth: 0.7,
+          borderColor: '#208C5A',
+          fontSize: 17,
+          paddingVertical: 6,
+          width: Dimensions.get('screen').width * 0.77,
+          borderRadius: 5,
+          paddingLeft: 10,
+          fontWeight: '300',
+          backgroundColor: 'white',
+        }}></TextInput>
 
-        <View
+      <TouchableOpacity onPress={() => onClick()}>
+        {props.Search ? (
+          <Text
             style={{
-                marginTop: 10,
-                alignSelf: 'center',
-                flexDirection: 'row',
-
+              fontSize: 17,
+              fontWeight: '400',
+              paddingLeft: 10,
+              paddingTop: Platform.OS == 'ios' ? 7 : 10,
+              color: props.colors,
             }}>
-
-            <TextInput
-               onChangeText={props.myDataS}
-                placeholder={props.holder}
-                placeholderTextColor={"grey"}
-                style={{
-                    borderWidth: 0.7,
-                    borderColor: "#208C5A",
-                    fontSize: 17,
-                    paddingVertical: 6,
-                    width:300,
-                    borderRadius: 10,
-                    paddingLeft: 10,
-                    fontWeight: "200",
-                    backgroundColor: "white"
-                }}></TextInput>
-
-            <TouchableOpacity
-                onPress={() => onClick()}
-            >
-                {
-                    props.Search?
-                    <Text
-                    style={{
-                        fontSize: 17,
-                        fontWeight: "400",
-                        paddingLeft: 10,
-                        paddingTop: 6,
-                        color: props.colors
-                    }}
-                >{props.Search}
-                </Text>
-                :null
-                }
-
-
-                
-            </TouchableOpacity>
-        </View>
-
-
-
-    )
+            {props.Search}
+          </Text>
+        ) : null}
+      </TouchableOpacity>
+    </View>
+  );
 }
 
-
-
-{/* <View>
+{
+  /* <View>
 
 <View >
 {
@@ -100,4 +93,5 @@ export default function Search_Bar(props) {
 
 </View>
 
-</View> */}
+</View> */
+}

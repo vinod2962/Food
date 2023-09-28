@@ -12,11 +12,12 @@ export default function LanguageBox(props) {
           height: 80,
           width: 350,
           borderColor: 'black',
-          borderWidth: 0.1,
-          borderRadius: 10,
+          borderWidth: 0.2,
+          // borderRadius: 10,
           marginVertical: 5,
           backgroundColor: 'white',
           justifyContent: 'space-between',
+          overflow: 'hidden',
         }}>
         <Text
           style={{

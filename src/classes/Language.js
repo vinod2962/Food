@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, SectionList, View, Text, FlatList} from 'react-native';
+import {
+  SafeAreaView,
+  SectionList,
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import LanguageBox from '../components/LanguageBox';
 // import en from '../language/en';
 // import hi from '../language/hi';
@@ -169,14 +177,26 @@ export default function Language(props) {
       style={{
         backgroundColor: '#EFF1EF',
       }}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('Main')}>
+        <Image
+          style={{
+            height: 30,
+            width: 25,
+            tintColor: 'black',
+            marginLeft: 10,
+            marginTop: 5,
+          }}
+          source={require('../images/less.png')}
+        />
+      </TouchableOpacity>
       <View
         style={{
           alignSelf: 'center',
-          marginTop: 30,
+          marginTop: 150,
         }}>
         <Text
           style={{
-            fontSize: 35,
+            fontSize: 33,
             alignSelf: 'center',
           }}>
           Change Language
@@ -184,7 +204,6 @@ export default function Language(props) {
         <View
           style={{
             alignSelf: 'center',
-
             marginTop: 20,
           }}>
           <FlatList

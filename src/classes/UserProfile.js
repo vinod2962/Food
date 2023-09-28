@@ -99,6 +99,18 @@ export default function UserProfile(props) {
         backgroundColor: '#208C5A',
         flex: 1,
       }}>
+      {/* <TouchableOpacity onPress={() => props.navigation.navigate('Main')}>
+        <Image
+          style={{
+            height: 30,
+            width: 25,
+            tintColor: 'black',
+            marginLeft: 10,
+            marginTop: 10,
+          }}
+          source={require('../images/less.png')}
+        />
+      </TouchableOpacity> */}
       <View
         style={{
           marginTop: 30,
@@ -135,6 +147,9 @@ export default function UserProfile(props) {
           paddingTop: 30,
         }}>
         <FlatList
+          style={{
+            height: 200,
+          }}
           data={userSide}
           renderItem={({item, index}) => (
             <ProfileDetails

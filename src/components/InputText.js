@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, Dimensions, Platform} from 'react-native';
 
 export default function InputText(props) {
   const {myData} = props;
@@ -7,8 +7,8 @@ export default function InputText(props) {
     <View>
       <Text
         style={{
-          marginTop: 14,
-          fontSize: 16,
+          marginTop: 9,
+          fontSize: 15,
         }}>
         {props.title}
       </Text>
@@ -18,13 +18,17 @@ export default function InputText(props) {
         placeholder={props.holder}
         value={props.value}
         style={{
-          paddingVertical: 2,
-          width: 280,
+          width: Dimensions.get('screen').width * 0.75,
           borderBottomColor: '#208C5A',
           borderBottomWidth: 1,
           alignSelf: 'center',
-          marginTop: 3,
-          height: 24,
+          marginTop: 1,
+          fontSize: 13,
+          color: 'black',
+          height: 30,
+
+          paddingBottom: Platform.OS == 'ios' ? null : -10,
+          paddingTop: Platform.OS == 'ios' ? null : -10,
         }}
       />
 

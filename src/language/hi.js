@@ -10,5 +10,5 @@ export default {
   login: 'लॉग इन करें',
   do_not_have_an_account: 'कोई खाता नहीं है?',
   sing_in_with_google: 'Google से साइन इन करें',
-  sing_in_with_apple: 'Apple के साथ साइन इन करें',
+  sing_in_with_apple: 'Apple से साइन इन करें',
 };

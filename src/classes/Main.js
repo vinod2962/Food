@@ -32,7 +32,7 @@ export default function Main(props) {
     <View
       style={{
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#EFF1EF',
       }}>
       <View
         style={{

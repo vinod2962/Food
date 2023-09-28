@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
 
   backgroundSplash1: {
-    backgroundColor: 'white',
+    backgroundColor: '#EFF1EF',
     flex: 1,
   },
   imageLogo: {
@@ -47,10 +47,10 @@ export default StyleSheet.create({
   },
 
   loginView: {
-    marginTop: 5,
-    borderWidth: 2,
-    borderColor: 'white',
-    borderRadius: 25,
+    marginTop: 0,
+    // borderWidth: 2,
+    // borderColor: 'white',
+    // borderRadius: 25,
     alignSelf: 'center',
     paddingTop: 10,
   },
@@ -59,22 +59,23 @@ export default StyleSheet.create({
 
   topAreaView: {
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   signUp_1_Text: {
     fontSize: 30,
   },
   signUp_2_Text: {
-    marginTop: 4,
+    marginTop: 5,
     color: 'black',
-    fontWeight: '400',
+    fontWeight: '300',
   },
   SignupView: {
-    borderWidth: 2,
-    borderColor: 'white',
-    borderRadius: 25,
+    // borderWidth: 2,
+    borderColor: '#EFF1EF',
+    // borderRadius: 25,
     alignSelf: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#EFF1EF',
+    marginTop: 20,
   },
 
   // forgot screen

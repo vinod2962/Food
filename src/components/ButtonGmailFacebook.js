@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native';
 
 export default function ButtonGmailFacebook(props) {
   return (
@@ -7,7 +7,7 @@ export default function ButtonGmailFacebook(props) {
       <View
         style={{
           height: 40,
-          width: 280,
+          width: Dimensions.get('screen').width * 0.75,
           backgroundColor: 'white',
           borderRadius: 8,
           alignSelf: 'center',

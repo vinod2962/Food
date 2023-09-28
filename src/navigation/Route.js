@@ -95,7 +95,7 @@ const Project = createStackNavigator({
   PersonalDetails: {
     screen: PersonalDetails,
     navigationOptions: {
-      // headerShown:false,
+      headerShown: false,
     },
   },
 

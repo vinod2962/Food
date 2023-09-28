@@ -1,45 +1,39 @@
-import React from "react";
-import { Text, View }from "react-native";
+import React from 'react';
+import {Dimensions, Text, View} from 'react-native';
 
-export default function PersonalUserDetails(props){
-
-    return(
-        <View
+export default function PersonalUserDetails(props) {
+  return (
+    <View
+      style={{
+        alignSelf: 'center',
+        marginTop: 5,
+      }}>
+      <Text
         style={{
-            alignSelf:"center",
-            marginTop:5
-        }}
-        >
-            <Text
-            style={{
-                fontSize:18,
-                fontWeight:"300",
-                color:"#484A4A"
-                
-            }}
-            >
-               {props.title}
-            </Text>
-            <Text
-            style={{
-                borderWidth:0.5,
-                borderColor:"#208C5A",
-                height:"auto",
-                width:360,
-                fontSize:17,
-                alignItems:"center",
-                paddingLeft:10,
-                paddingTop:8,
-                backgroundColor:"white",
-                marginTop:5,
-                borderRadius:5,
-                overflow:"hidden",
-                paddingBottom:5
-            
-            }}
-            >
-                {props.info}
-            </Text>
-        </View>
-    )
+          fontSize: 16,
+          fontWeight: '500',
+          color: '#484A4A',
+          marginTop: 5,
+        }}>
+        {props.title}
+      </Text>
+      <Text
+        style={{
+          borderColor: '#208C5A',
+          height: 34,
+          width: Dimensions.get('screen').width * 0.9,
+          fontSize: 19,
+          //   alignItems: 'center',
+          paddingLeft: 10,
+          paddingTop: 5,
+          backgroundColor: 'white',
+          marginTop: 2,
+          borderRadius: 5,
+          overflow: 'hidden',
+          // paddingBottom: 5,
+        }}>
+        {props.info}
+      </Text>
+    </View>
+  );
 }

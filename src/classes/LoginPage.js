@@ -39,7 +39,7 @@ export default function LoginPage(props) {
       Alert.alert('error', 'plz fill all fields');
     } else {
       getData();
-      props.navigation.navigate('Main');
+      // props.navigation.navigate('Main');
     }
   };
   const getData = async () => {
@@ -57,7 +57,7 @@ export default function LoginPage(props) {
         phone,
         gender,
       }));
-    // console.log(res);
+    console.log(res);
 
     if (res.length == 0) {
       Alert.alert('error', 'Email not found');
@@ -87,7 +87,7 @@ export default function LoginPage(props) {
         <View
           style={{
             flexDirection: 'row',
-            marginTop: 60,
+            marginTop: 50,
           }}>
           <Text style={css.login_1_Text}>{I18n.t('welcome')}</Text>
           <Image
@@ -119,7 +119,7 @@ export default function LoginPage(props) {
             <Text
               style={{
                 alignSelf: 'flex-end',
-                marginTop: 5,
+                marginTop: 20,
                 color: '#208C5A',
                 fontSize: 14,
               }}>
@@ -134,13 +134,12 @@ export default function LoginPage(props) {
         <View
           style={{
             alignSelf: 'center',
-            marginTop: 17,
+            marginTop: 15,
             flexDirection: 'row',
           }}>
           <Text
             style={{
-              marginTop: 1,
-              fontSize: 15,
+              fontSize: 14,
             }}>
             {I18n.t('do_not_have_an_account')}
           </Text>
@@ -149,8 +148,8 @@ export default function LoginPage(props) {
             <Text
               style={{
                 alignSelf: 'flex-end',
-                fontSize: 16,
-                marginLeft: 5,
+                fontSize: 14,
+                marginLeft: 6,
                 color: '#208C5A',
               }}>
               {I18n.t('sign_up')}
@@ -162,15 +161,15 @@ export default function LoginPage(props) {
         style={{
           fontSize: 15,
           alignSelf: 'center',
-          marginTop: 10,
+          marginTop: 5,
           fontWeight: '500',
           color: 'black',
         }}>
-        ---------------------------Or---------------------------
+        Or
       </Text>
       <View
         style={{
-          marginTop: 10,
+          marginTop: 5,
         }}>
         <ButtonGmailFacebook
           title={I18n.t('sing_in_with_google')}
