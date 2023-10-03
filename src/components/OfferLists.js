@@ -77,7 +77,7 @@ export default function OfferLists(props) {
                   alignSelf: 'flex-start',
                   left: 70,
                 }}>
-                Order now
+                {props.order_now}
               </Text>
             </TouchableOpacity>
           </View>

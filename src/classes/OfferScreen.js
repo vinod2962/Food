@@ -14,6 +14,18 @@ import OfferLists from '../components/OfferLists';
 import Search_Bar from '../components/Search_Bar';
 import FoodType from '../components/FoodType';
 
+import en from '../language/en';
+import hi from '../language/hi';
+import fr from '../language/fr';
+import I18n from 'react-native-i18n';
+I18n.fallback = true;
+
+I18n.translations = {
+  hi,
+  en,
+  fr,
+};
+
 export default function OfferScreen(props) {
   useEffect(() => {
     value();
@@ -61,114 +73,114 @@ export default function OfferScreen(props) {
       Image: require('../images/offer41.png'),
       shopName: "Wendy's",
       offerAdd: 'Buy 1 Get 1 Free on Chesse Blast Burgers',
-      keyId: 'Buy 1 Get 1 Free',
+      keyId: I18n.t('Buy_1_get_1'),
     },
     {
       Image: require('../images/offer31.png'),
       shopName: 'La-Pino,s Pizza',
       offerAdd: "Pizza's & more at Rs.149 only",
-      keyId: 'Only Rs.149',
+      keyId: I18n.t('only_rs_149'),
     },
 
     {
       Image: require('../images/offer15.png'),
       shopName: 'GetAway',
       offerAdd: 'Flat 20% OFF on Ice creams & more',
-      keyId: '20% off',
+      keyId: I18n.t('_20_off'),
     },
 
     {
       Image: require('../images/offer21.png'),
       shopName: 'The Biryani Life',
       offerAdd: "Buy 1 Get 1 Free on Biryani's & more",
-      keyId: 'Buy 1 Get 1 Free',
+      keyId: I18n.t('Buy_1_get_1'),
     },
 
     {
       Image: require('../images/offer23.png'),
       shopName: 'Caterspoint',
       offerAdd: 'Buy 1 Get 1 Free on Sandwiches, salads & more',
-      keyId: 'Buy 1 Get 1 Free',
+      keyId: I18n.t('Buy_1_get_1'),
     },
 
     {
       Image: require('../images/offer24.png'),
       shopName: 'The burger King',
       offerAdd: 'Burger & Sides at Rs.129 only',
-      keyId: 'Only Rs.129',
+      keyId: I18n.t('only_rs_129'),
     },
 
     {
       Image: require('../images/offer27.png'),
       shopName: 'Great Indian Khichdi',
       offerAdd: 'Everything at Rs.149 only',
-      keyId: 'Only Rs.149',
+      keyId: I18n.t('only_rs_149'),
     },
 
     {
       Image: require('../images/offer41.png'),
       shopName: "Wendy's",
       offerAdd: 'Buy 2 Get 1 Free on Chesse Blast Burgers',
-      keyId: 'Buy 2 Get 1 Free',
+      keyId: I18n.t('Buy_2_get_1'),
     },
     {
       Image: require('../images/offer31.png'),
       shopName: 'La-Pino,s Pizza',
       offerAdd: "Pizza's & more at Rs.149 only",
-      keyId: 'Only Rs.149',
+      keyId: I18n.t('only_rs_149'),
     },
 
     {
       Image: require('../images/offer15.png'),
       shopName: 'GetAway',
       offerAdd: 'Flat 40% OFF on Ice creams & more',
-      keyId: '40% off',
+      keyId: I18n.t('_40_off'),
     },
 
     {
       Image: require('../images/offer21.png'),
       shopName: 'The Biryani Life',
       offerAdd: "Buy 1 Get 1 Free on Biryani's & more",
-      keyId: 'Buy 1 Get 1 Free',
+      keyId: I18n.t('Buy_1_get_1'),
     },
 
     {
       Image: require('../images/offer23.png'),
       shopName: 'Caterspoint',
       offerAdd: 'Buy 1 Get 1 Free on Sandwiches, salads & more',
-      keyId: 'Buy 1 Get 1 Free',
+      keyId: I18n.t('Buy_1_get_1'),
     },
 
     {
       Image: require('../images/offer24.png'),
       shopName: 'The burger King',
       offerAdd: 'Burger & Sides at Rs.129 only',
-      keyId: 'Only Rs.129',
+      keyId: I18n.t('only_rs_129'),
     },
 
     {
       Image: require('../images/offer27.png'),
       shopName: 'Great Indian Khichdi',
       offerAdd: 'Everything at Rs.149 only',
-      keyId: 'Only Rs.149',
+      keyId: I18n.t('only_rs_149'),
     },
 
     {
       Image: require('../images/offer27.png'),
       shopName: 'Great Indian Khichdi',
       offerAdd: 'Flat 50% OFF on any Items',
-      keyId: '50% off',
+      keyId: I18n.t('_50_off'),
     },
   ];
 
   const foodItemsoffer = [
-    {foodtypes: 'Buy 1 Get 1 Free'},
-    {foodtypes: '20% off'},
-    {foodtypes: '40% off'},
-    {foodtypes: 'Only Rs.149'},
-    {foodtypes: 'Buy 2 Get 1 Free'},
-    {foodtypes: '50% off'},
-    {foodtypes: 'Only Rs.129'},
+    {foodtypes: I18n.t('Buy_1_get_1')},
+    {foodtypes: I18n.t('_20_off')},
+    {foodtypes: I18n.t('_40_off')},
+    {foodtypes: I18n.t('only_rs_149')},
+    {foodtypes: I18n.t('Buy_2_get_1')},
+    {foodtypes: I18n.t('_50_off')},
+    {foodtypes: I18n.t('only_rs_129')},
   ];
 
   const _renderItem = ({item, index}) => {
@@ -199,8 +211,8 @@ export default function OfferScreen(props) {
         <View
           style={{
             // marginTop: 10,
-            paddingTop: 10,
-            paddingBottom: 2,
+            paddingTop: 5,
+            paddingBottom: 0,
             flexDirection: 'row',
             justifyContent: 'space-between',
             backgroundColor: '#208C5A',
@@ -209,15 +221,14 @@ export default function OfferScreen(props) {
             style={{
               fontSize: 25,
               fontWeight: '400',
-              // alignSelf: "center",
+
               color: 'black',
               paddingLeft: 10,
-              //   alignSelf: 'stretch',
+
               paddingBottom: 10,
               paddingRight: 10,
-              //   paddingTop: 4,
             }}>
-            Today's offers
+            {I18n.t('todays_offers')}
           </Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate('MenuData')}>
@@ -240,11 +251,11 @@ export default function OfferScreen(props) {
           }}>
           <View>
             <Search_Bar
-              holder=" Shopname"
+              holder={I18n.t('shopm_name')}
               colors="black"
               onClick={() => searchFilter()}
               myDataS={text => searchFilter(text)}
-              Search="Search"
+              Search={I18n.t('search')}
             />
           </View>
           <View
@@ -279,7 +290,7 @@ export default function OfferScreen(props) {
             <FlatList
               style={{
                 paddingBottom: 1,
-                height: Platform.OS == 'ios' ? 595 : 570,
+                height: Platform.OS == 'ios' ? 600 : 575,
               }}
               showsVerticalScrollIndicator={false}
               data={filterData}
@@ -289,6 +300,7 @@ export default function OfferScreen(props) {
                     Image={item.Image}
                     shopName={item.shopName}
                     offerAdd={item.offerAdd}
+                    order_now={I18n.t('order_now')}
                   />
                 );
               }}

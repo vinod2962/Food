@@ -5,25 +5,36 @@ import HomePage from './HomePage';
 import UserProfile from './UserProfile';
 import OfferScreen from './OfferScreen';
 import CartScreen from './CartScreen';
+import en from '../language/en';
+import hi from '../language/hi';
+import fr from '../language/fr';
+import I18n from 'react-native-i18n';
+I18n.fallback = true;
+
+I18n.translations = {
+  hi,
+  en,
+  fr,
+};
 
 export default function Main(props) {
   const [displayIndex, setDisplayIndex] = useState(0);
   const pages = [
     {
-      title: 'Home',
+      title: I18n.t('home'),
       Image: require('../images/home1.png'),
       // path:props.navigation.navigate('HomePage')
     },
     {
-      title: 'Offers',
+      title: I18n.t('offers'),
       Image: require('../images/offer1.png'),
     },
     {
-      title: 'Cart',
+      title: I18n.t('cart'),
       Image: require('../images/cart1.png'),
     },
     {
-      title: 'Profile',
+      title: I18n.t('profile'),
       Image: require('../images/profile1.png'),
     },
   ];

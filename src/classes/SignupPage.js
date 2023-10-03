@@ -107,7 +107,7 @@ export default function SignupPage(props) {
     } else if (password != confirm) {
       toastAlert('your password and confirm password not same');
     } else if (phone === '') {
-      toastAlert('Please enter your Phone number');
+      // toastAlert('Please enter your Phone number');
     } else {
       let userData = {
         name: name,

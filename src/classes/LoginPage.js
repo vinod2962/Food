@@ -65,6 +65,8 @@ export default function LoginPage(props) {
       if (res[0].email == email.toLowerCase() && res[0].password == password) {
         let userData = JSON.stringify(res[0]);
         AsyncStorage.setItem('user_login', userData);
+        AsyncStorage.setItem('status', 'true');
+
         props.navigation.navigate('Main');
       } else {
         Alert.alert('Invalid Credentails');

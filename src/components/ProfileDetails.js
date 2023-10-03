@@ -2,7 +2,8 @@ import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 export default function ProfileDetails(props) {
-  const {listClickHandle} = props;
+  const {listClickHandle, title} = props;
+  // console.log('your profile', title);
   return (
     <View
       style={{
@@ -16,7 +17,7 @@ export default function ProfileDetails(props) {
         alignSelf: 'center',
         marginBottom: 2,
       }}>
-      <TouchableOpacity onPress={() => listClickHandle(props.title)}>
+      <TouchableOpacity onPress={() => listClickHandle(title)}>
         <View
           style={{
             flexDirection: 'row',

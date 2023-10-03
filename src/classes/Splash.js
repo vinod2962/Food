@@ -11,23 +11,25 @@ LogBox.ignoreAllLogs();
 export default function Splash(props) {
   useEffect(() => {
     getData();
-    setTimeout(() => {
-      props.navigation.navigate('Main');
-    }, 1000);
   });
 
   const getData = async () => {
     await AsyncStorage.getItem('img');
-    const colorL = await AsyncStorage.getItem('languageSelected');
 
-    // if (colorL == '' || colorL == undefined || colorL == null) {
-    //   I18n.locale = 'en';
-    // } else {
-    //   I18n.locale = colorL;
-    // }
+    const colorL = await AsyncStorage.getItem('languageSelected');
+    let login = await AsyncStorage.getItem('login');
+
     {
-      colorL ? (I18n.locale = colorL) : (I18n.locale = 'hi');
+      colorL ? (I18n.locale = colorL) : (I18n.locale = 'en');
     }
+
+    setTimeout(async () => {
+      myStaus();
+    }, 1000);
+  };
+  const myStaus = async () => {
+    let status = await AsyncStorage.getItem('status');
+    props.navigation.replace(status == 'true' ? 'Main' : 'LoginPage');
   };
 
   return (

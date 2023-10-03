@@ -142,7 +142,7 @@ export default function Pizzas(props) {
               width: 25,
               tintColor: 'green',
               marginLeft: 10,
-              //   marginTop: 10,
+              marginTop: 10,
             }}
             source={require('../images/less.png')}
           />

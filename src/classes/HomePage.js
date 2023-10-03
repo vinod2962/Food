@@ -20,6 +20,17 @@ import Search_Bar from '../components/Search_Bar';
 import FoodType from '../components/FoodType';
 import OfferList from '../components/OfferList';
 import {SliderBox} from 'react-native-image-slider-box';
+import en from '../language/en';
+import hi from '../language/hi';
+import fr from '../language/fr';
+import I18n from 'react-native-i18n';
+I18n.fallback = true;
+
+I18n.translations = {
+  hi,
+  en,
+  fr,
+};
 
 var srcData = [];
 export default function HomePage(props) {
@@ -107,11 +118,11 @@ export default function HomePage(props) {
   ];
 
   const foodItems = [
-    {foodtypes: 'Top of the week'},
-    {foodtypes: 'Coffee'},
-    {foodtypes: 'Sweet'},
-    {foodtypes: 'Vegetarion'},
-    {foodtypes: 'Chicken'},
+    {foodtypes: I18n.t('top_of_the_weel')},
+    {foodtypes: I18n.t('coffee')},
+    {foodtypes: I18n.t('sweet')},
+    {foodtypes: I18n.t('vegetarian')},
+    {foodtypes: I18n.t('chicken')},
   ];
 
   const images = [
@@ -125,54 +136,75 @@ export default function HomePage(props) {
 
   const Itemlists = [
     {
-      name: 'Pizza',
+      name: I18n.t('pizza'),
       image: require('./../images/p1.png'),
-      keyId: 'Top of the week',
+      keyId: I18n.t('top_of_the_weel'),
     },
     {
-      name: 'Biryani',
+      name: I18n.t('biryani'),
       image: require('./../images/biryani2.png'),
-      keyId: 'Chicken',
+      keyId: I18n.t('chicken'),
     },
     {
-      name: 'Italian',
+      name: I18n.t('italian'),
       image: require('./../images/italian1.png'),
-      keyId: 'Chicken',
+      keyId: I18n.t('chicken'),
     },
     {
-      name: 'North Indian',
+      name: I18n.t('north_indian'),
       image: require('./../images/northindian1.png'),
-      keyId: 'Top of the week',
+      keyId: I18n.t('top_of_the_weel'),
     },
     {
-      name: 'Rolls',
+      name: I18n.t('rolls'),
       image: require('./../images/rolls1.png'),
-      keyId: 'Vegetarion',
+      keyId: I18n.t('vegetarian'),
     },
     {
-      name: 'Paratha',
+      name: I18n.t('paratha'),
       image: require('./../images/paratha1.png'),
-      keyId: 'Top of the week',
+      keyId: I18n.t('top_of_the_weel'),
     },
+
     {
-      name: 'Burger',
+      name: I18n.t('burger'),
       image: require('./../images/burger1.png'),
-      keyId: 'Vegetarion',
+      keyId: I18n.t('vegetarian'),
     },
     {
-      name: 'Cake',
+      name: I18n.t('cake'),
       image: require('./../images/cake1.png'),
-      keyId: 'Sweet',
+      keyId: I18n.t('sweet'),
     },
     {
-      name: 'Coffee',
+      name: I18n.t('cake'),
+      image: require('./../images/cake1.png'),
+      keyId: I18n.t('sweet'),
+    },
+    {
+      name: I18n.t('coffee'),
       image: require('./../images/coffee1.png'),
-      keyId: 'Coffee',
+      keyId: I18n.t('coffee'),
     },
     {
-      name: 'south Indian',
+      name: I18n.t('burger'),
+      image: require('./../images/burger1.png'),
+      keyId: I18n.t('vegetarian'),
+    },
+    {
+      name: I18n.t('coffee'),
+      image: require('./../images/coffee1.png'),
+      keyId: I18n.t('top_of_the_weel'),
+    },
+    {
+      name: I18n.t('south_indian'),
       image: require('./../images/southindian1.png'),
-      keyId: 'Vegetarion',
+      keyId: I18n.t('vegetarian'),
+    },
+    {
+      name: I18n.t('coffee'),
+      image: require('./../images/coffee1.png'),
+      keyId: I18n.t('coffee'),
     },
   ];
 
@@ -234,16 +266,16 @@ export default function HomePage(props) {
         }}>
         <Home_page_Topbar
           maps={() => props.navigation.navigate('Maps')}
-          location={location}
+          location={I18n.t('select_location')}
           onClick={() => props.navigation.navigate('PersonalDetails')}
         />
 
         <Search_Bar
-          holder="Search on Foo|Dzzzi"
+          holder={I18n.t('search_on_app_name')}
           colors="black"
           onClick={() => searchFilter()}
           myDataS={text => searchFilter(text)}
-          Search="Search"
+          Search={I18n.t('search')}
         />
         <View
           style={{
@@ -268,7 +300,7 @@ export default function HomePage(props) {
 
         <FlatList
           style={{
-            height: Platform.OS == 'ios' ? 393 : 374,
+            height: Platform.OS == 'ios' ? 389 : 374,
             backgroundColor: '#EFF1EF',
             marginTop: 10,
           }}

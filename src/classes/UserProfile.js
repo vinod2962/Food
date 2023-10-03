@@ -13,6 +13,18 @@ import Dialog, {DialogContent} from 'react-native-popup-dialog';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import en from '../language/en';
+import hi from '../language/hi';
+import fr from '../language/fr';
+import I18n from 'react-native-i18n';
+I18n.fallback = true;
+
+I18n.translations = {
+  hi,
+  en,
+  fr,
+};
+
 export default function UserProfile(props) {
   useEffect(() => {
     getData();
@@ -39,56 +51,56 @@ export default function UserProfile(props) {
 
   const userSide = [
     {
-      title: ' Your Profile',
+      title: I18n.t('your_profile'),
       Image: require('../images/profile1.png'),
       // NextPage:{navigate("PersonalDetails")}
     },
     {
-      title: 'Your rating',
+      title: I18n.t('your_rating'),
       Image: require('../images/star1.png'),
     },
     {
-      title: 'Your orders',
+      title: I18n.t('your_orders'),
       Image: require('../images/order2.png'),
     },
     {
-      title: 'Language',
+      title: I18n.t('language'),
       Image: require('../images/fav1.png'),
     },
     {
-      title: 'Notification',
+      title: I18n.t('noticication'),
       Image: require('../images/notification1.png'),
     },
     {
-      title: 'About',
+      title: I18n.t('about'),
       Image: require('../images/about1.png'),
     },
     {
-      title: 'Setting',
+      title: I18n.t('setting'),
       Image: require('../images/setting1.png'),
     },
     {
-      title: 'Logout',
+      title: I18n.t('logout'),
       Image: require('../images/logout1.png'),
     },
   ];
 
   const clickMange = val => {
-    if (val == 'Your Profile') {
+    if (val == I18n.t('your_profile')) {
       props.navigation.navigate('ProfileDetails');
-    } else if (val == 'Your rating') {
+    } else if (val == I18n.t('your_rating')) {
       refRBSheet1.current.open();
-    } else if (val == 'Your orders') {
+    } else if (val == I18n.t('your_orders')) {
       props.navigation.navigate('YourOrders');
-    } else if (val == 'Language') {
+    } else if (val == I18n.t('language')) {
       props.navigation.navigate('Language');
-    } else if (val == 'Notification') {
+    } else if (val == I18n.t('noticication')) {
       props.navigation.navigate('MenuData');
-    } else if (val == 'About') {
+    } else if (val == I18n.t('about')) {
       refRBSheet.current.open();
-    } else if (val == 'Setting') {
+    } else if (val == I18n.t('setting')) {
       null;
-    } else if (val == 'Logout') {
+    } else if (val == I18n.t('logout')) {
       setShowDailog(true);
     }
   };
@@ -212,6 +224,7 @@ export default function UserProfile(props) {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
+                      AsyncStorage.removeItem('status');
                       setShowDailog(false),
                         props.navigation.navigate('LoginPage');
                     }}>
