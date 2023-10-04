@@ -56,12 +56,12 @@ export default function SignupPage(props) {
   const Validation = async () => {
     if (name.length <= 1) {
       name === ''
-        ? toastAlert('Please enter your name')
-        : toastAlert('Please enter valid name');
+        ? toastAlert('Please fill all datails')
+        : toastAlert('Please fill all datails');
     } else if (gender === '') {
-      toastAlert('Please enter your gender');
+      toastAlert('Please fill all datails');
     } else if (email === '') {
-      toastAlert('Please enter your email');
+      toastAlert('Please fill all datails');
     } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       toastAlert('please fill the valid email');
     } else if (
@@ -93,7 +93,7 @@ export default function SignupPage(props) {
       //   // },
       // });
     } else if (password === '') {
-      toastAlert('Please enter your password');
+      toastAlert('Please fill all datails');
     } else if (
       !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/.test(
         password,
@@ -103,11 +103,11 @@ export default function SignupPage(props) {
         'Strong Password:-  1 uppercase. 1 lowercase ,1 special character,1 number,Min 8 characters, Max 30 characters.',
       );
     } else if (confirm === '') {
-      toastAlert('Please enter your confirm password');
+      toastAlert('Please fill all datails');
     } else if (password != confirm) {
       toastAlert('your password and confirm password not same');
     } else if (phone === '') {
-      // toastAlert('Please enter your Phone number');
+      toastAlert('Please fill all datails');
     } else {
       let userData = {
         name: name,
@@ -122,7 +122,7 @@ export default function SignupPage(props) {
       let userStr = JSON.stringify(usersDataList);
       AsyncStorage.setItem('users', userStr);
 
-      toastAlert('Please enter your Phone number');
+   
       props.navigation.navigate('LoginPage');
 
       setName('');

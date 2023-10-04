@@ -24,6 +24,8 @@ import en from '../language/en';
 import hi from '../language/hi';
 import fr from '../language/fr';
 import I18n from 'react-native-i18n';
+import AsyncStorage from '@react-native-community/async-storage';
+
 I18n.fallback = true;
 
 I18n.translations = {
@@ -34,14 +36,19 @@ I18n.translations = {
 
 var srcData = [];
 export default function HomePage(props) {
+
+ 
+
   useEffect(() => {
     value();
     ImageData();
+    
   }, []);
 
   const ImageData = async () => {
     let y = await AsyncStorage.getItem('img');
     SetPic(y);
+    
   };
 
   const [pic, SetPic] = useState('');
@@ -257,7 +264,7 @@ export default function HomePage(props) {
   return (
     <SafeAreaView
       style={{
-        // backgroundColor: '#208C5A',
+        backgroundColor: '#EFF1EF',
         flex: 1,
       }}>
       <View
@@ -268,6 +275,9 @@ export default function HomePage(props) {
           maps={() => props.navigation.navigate('Maps')}
           location={I18n.t('select_location')}
           onClick={() => props.navigation.navigate('PersonalDetails')}
+          // photo={require("../images/user1.jpeg")}
+          photo={pic?{uri:pic}:require("../images/user1.jpeg")}
+          
         />
 
         <Search_Bar

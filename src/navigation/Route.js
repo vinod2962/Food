@@ -133,7 +133,7 @@ const Project = createStackNavigator({
   MenuData: {
     screen: MenuData,
     navigationOptions: {
-      // headerShown:false,
+      headerShown:false,
     },
   },
 

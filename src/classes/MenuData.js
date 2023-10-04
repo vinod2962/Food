@@ -33,17 +33,39 @@ export default function MenuData(props) {
         backgroundColor: '#EFF1EF',
         flex: 1,
       }}>
+        <View
+        style={{
+          flexDirection: 'row',
+          //   justifyContent: 'space-between',
+        }}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Main')}>
+          <Image
+            style={{
+              height:35,
+              width: 35,
+              tintColor: 'green',
+              // marginLeft: 10,
+              alignSelf:"center"
+              // marginTop: 10,
+            }}
+            source={require('../images/less.png')}
+          />
+        </TouchableOpacity>
+
+        <Text
+          style={{
+            fontSize: 26,
+            alignSelf: 'center',
+            marginLeft: 110,
+          }}>
+       Notifications
+        </Text>
+      </View>
       <View
         style={{
           backgroundColor: '#EFF1EF',
         }}>
-        <Text
-          style={{
-            fontSize: 30,
-            alignSelf: 'center',
-          }}>
-          Notifications
-        </Text>
+        
         <ActivityIndicator size={'small'} animating={loader} />
         {data ? (
           <FlatList

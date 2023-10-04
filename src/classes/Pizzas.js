@@ -138,11 +138,12 @@ export default function Pizzas(props) {
         <TouchableOpacity onPress={() => props.navigation.navigate('Main')}>
           <Image
             style={{
-              height: 30,
-              width: 25,
+              height: 35,
+              width: 35,
               tintColor: 'green',
-              marginLeft: 10,
-              marginTop: 10,
+              // marginLeft: 10,
+              alignSelf:"center"
+              // marginTop: 10,
             }}
             source={require('../images/less.png')}
           />

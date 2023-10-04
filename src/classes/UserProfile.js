@@ -87,7 +87,7 @@ export default function UserProfile(props) {
 
   const clickMange = val => {
     if (val == I18n.t('your_profile')) {
-      props.navigation.navigate('ProfileDetails');
+      props.navigation.navigate('PersonalDetails');
     } else if (val == I18n.t('your_rating')) {
       refRBSheet1.current.open();
     } else if (val == I18n.t('your_orders')) {

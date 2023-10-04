@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import {Image, Linking, Text, TouchableOpacity, View} from 'react-native';
 
 export default function Home_page_Topbar(props) {
+
+
   return (
     <View
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#208C5A',
+        // backgroundColor: '#208C5A',
         paddingTop: 5,
         paddingBottom: 2,
         paddingLeft: 10,
@@ -48,7 +50,7 @@ export default function Home_page_Topbar(props) {
             // marginRight: 0,
             borderRadius: 17.5,
           }}
-          source={require('./../images/user1.jpeg')}
+          source={props.photo}
         />
       </TouchableOpacity>
     </View>

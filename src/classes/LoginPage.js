@@ -19,6 +19,8 @@ import en from '../language/en';
 import hi from '../language/hi';
 import fr from '../language/fr';
 import I18n from 'react-native-i18n';
+import Toast from 'react-native-simple-toast';
+
 I18n.fallback = true;
 
 I18n.translations = {
@@ -29,6 +31,13 @@ I18n.translations = {
 
 let usersDataList = [];
 export default function LoginPage(props) {
+
+  const toastAlert = val => {
+    Toast.show(val, Toast.LONG, {
+      backgroundColor: '#208C5A',
+    });
+  };
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -60,7 +69,7 @@ export default function LoginPage(props) {
     console.log(res);
 
     if (res.length == 0) {
-      Alert.alert('error', 'Email not found');
+      toastAlert('Fill Valid Details');
     } else {
       if (res[0].email == email.toLowerCase() && res[0].password == password) {
         let userData = JSON.stringify(res[0]);
